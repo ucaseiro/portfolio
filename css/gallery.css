@@ -133,7 +133,7 @@ font-style: normal;
 
 body {
   margin: 0;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
   background: #000000; /* Mode clair par défaut */
@@ -491,7 +491,7 @@ font-style: normal;
   /* Corps et liens */
   body {
     margin: 0;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: #000000; /* Mode clair par défaut */
   }
@@ -508,7 +508,7 @@ font-style: normal;
 
   .container{
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
   }
   
