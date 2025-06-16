@@ -127,7 +127,7 @@ header nav {
 
 body{
   background: black;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   
 }
@@ -248,7 +248,7 @@ font-style: normal;
   /* Corps et liens */
   body{
     background: black;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     
   }
