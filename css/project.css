@@ -1,0 +1,730 @@
+@media (min-width : 667px){
+/* Reset de base pour les liens */
+a {
+  text-decoration: none;
+  color: white !important;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+}
+
+a.active {
+  color: grey !important;
+  text-decoration: underline;
+}
+
+/* Header général */
+header {
+  
+  padding: 3vw 3vw;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1vw;
+  position:fixed;
+  z-index: 10;
+  width: 100vw;
+  top: 0;
+}
+header a{ 
+  display: inline-flex;       /* Correction : permet un meilleur alignement */
+  align-items: center;        /* Centre verticalement le texte */
+  justify-content: center;    /* Centre horizontalement */
+  
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5vw;
+  padding: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  text-decoration: none;       /* Pour éviter soulignement par défaut */
+  color: inherit;              /* Assure la couleur du texte */
+}
+/* Navigation */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Liens à droite (Gallery + Projet) */
+.nav-right {
+  display: flex;
+  gap: 20px;
+  z-index: 13;
+}
+
+/* --- Fenêtre Modal --- */
+.fullscreen-cv {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.cv-content {
+  width: 80vw;
+  height: 80vh;
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.fullscreen-cv iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.mobile-cv-link {
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+  display: block;;
+  text-align: center;
+  margin-top: 1rem;
+  z-index: -1;
+}
+.close-btn {
+  font-family: futura-pt, sans-serif;
+font-weight: 400;
+font-style: normal;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.media-content {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-content img, .media-content video {
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain; /* Très important pour que ça rentre dans le cadre sans déformation */
+  border-radius: 0.5rem;
+}
+
+.close-media {
+  font-family: futura-pt, sans-serif;
+font-weight: 400;
+font-style: normal;
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  height: 3vw;
+  width: 3vw;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  color: white;
+  font-size: 2.5vw;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+
+body {
+  margin: 0;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+}
+.window {
+  position: relative;
+  border-radius: 1vw;
+  margin: 2vw;
+  padding: 1vw;
+  top: 10vw;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 2vw; /* Coins arrondis */
+}
+
+
+.pp{
+  flex: 2;
+   background: grey;
+    border-radius: 1vw;
+     height: 25vw;
+     overflow: hidden;
+}
+.pp img{
+  width: 100%;
+  object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+  display: block;
+  transform: translateY(-20%);
+}
+
+.main-nav {
+  position: fixed;
+  top: 0vw;
+  height: 6vw;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5vw 1vw;
+  z-index: 2;
+  font-size: 1.2vw;
+  color: white;
+  font-family: orbitron, sans-serif;
+  font-weight: 400;
+  margin-bottom: -2vw;
+}
+
+.nom{
+  top:75%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+  white-space: nowrap; /* évite les retours à la ligne involontaires */
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 5vw; /* Coins arrondis */
+  padding: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+
+
+.project-grid {
+  column-count: 4; /* ou auto selon la largeur */
+  column-gap: 1vw;
+}
+
+.project-grid img {
+  width: 100%;
+  margin-bottom: 1vw;
+  break-inside: avoid; /* évite qu’une image soit coupée en deux */
+  border-radius: 1vw;
+  display: block;
+  cursor: pointer;
+}
+
+.project-grid video {
+  width: 100%;
+  margin-bottom: 1vw;
+  break-inside: avoid; /* évite qu’une image soit coupée en deux */
+  border-radius: 1vw;
+  display: block;
+  cursor: pointer;
+}
+
+:fullscreen img,
+:-webkit-full-screen img,
+:-moz-full-screen img {
+  object-fit: contain;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}
+
+.back-btn {
+  background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+  backdrop-filter: blur(5px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+  border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 2vw;
+  padding: 0.5vw 2vw;
+  text-align: center;
+  display: inline-block;
+  margin: 2vw;
+  font-size: 1.2vw;
+  position: fixed;
+  top: 80vh;
+  cursor: pointer;
+}
+
+.next-btn {
+  background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+  backdrop-filter: blur(5px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+  border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 2vw;
+  padding: 0.5vw 2vw;
+  text-align: center;
+  display: inline-block;
+  margin: 2vw;
+  font-size: 1.2vw;
+  position: fixed;
+  top: 80vh;
+  right: 0vw;
+  cursor: pointer;
+}
+
+.contact-footer {
+  margin-top: 9%;
+  position: relative;
+        bottom: unset;
+        width: 100vw;
+        color: white;
+        padding: 20px;
+        gap: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-family: futura-pt, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+          flex-wrap: wrap;
+          z-index: 4;
+}
+
+
+.contact-left {
+  padding: 1vw;
+  position: absolute;
+  flex: 1;
+  text-align: left;
+  display: flex;
+  font-size: 1vw;
+}
+
+.contact-left p{
+  margin-right: 1vw;
+  padding: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 5vw; /* Coins arrondis */
+  font-size: 0.8vw;
+}
+
+
+}
+
+@media (max-width: 666px) {
+  a {
+    text-decoration: none;
+    color: white !important;
+  }
+  
+  a:hover {
+    color: grey;
+    text-decoration: underline;
+  }
+  
+  a.active {
+    color: grey !important;
+    text-decoration: underline;
+  }
+  
+  /* Header général */
+  header {
+    /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
+    padding: 3vw 3vw;
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+    transform: translateY(-20%);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1vw;
+    position:fixed;
+    z-index: 10;
+    width: 100vw;
+  }
+
+  header a{ 
+    display: inline-flex;       /* Correction : permet un meilleur alignement */
+    align-items: center;        /* Centre verticalement le texte */
+    justify-content: center;    /* Centre horizontalement */
+    
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 5vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    text-decoration: none;       /* Pour éviter soulignement par défaut */
+    color: inherit;              /* Assure la couleur du texte */
+    font-size: 2vw;
+  }
+  
+  /* Navigation */
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Liens à droite (Gallery + Projet) */
+  .nav-right {
+    display: flex;
+    gap: 20px;
+    
+  }
+  
+  /* --- Fenêtre Modal --- */
+  .fullscreen-cv {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .cv-content {
+    width: 80vw;
+    height: 50vh;
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  
+  .fullscreen-cv iframe {
+    display: none;
+  }
+  .mobile-cv-link {
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  width: 50%;
+  transform: translate(-50%,-50%);
+  display: block;;
+  text-align: center;
+  margin-top: 1rem;
+  }
+
+  .close-btn {
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .media-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .media-content {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .media-content img, .media-content video {
+    max-width: 85vw;
+    max-height: 85vh;
+    object-fit: contain; /* Très important pour que ça rentre dans le cadre sans déformation */
+    border-radius: 0.5rem;
+  }
+  
+  .close-media {
+    font-family: futura-pt, sans-serif;
+font-weight: 400;
+font-style: normal;
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  height: 5vw;
+  width: 5vw;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  color: white;
+  font-size: 4vw;
+  cursor: pointer;
+  border-radius: 50%;
+  }
+  
+  
+  body {
+    margin: 0;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+  }
+  .window {
+    position: relative;
+    border-radius: 1vw;
+    margin: 2vw;
+    padding: 1vw;
+    top: 10vw;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+    backdrop-filter: blur(10px); /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    border-radius: 2vw; /* Coins arrondis */
+  }
+  
+  
+  .pp{
+    flex: 2;
+     background: grey;
+      border-radius: 1vw;
+       height: 25vw;
+       overflow: hidden;
+  }
+  .pp img{
+    width: 100%;
+    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+    display: block;
+    transform: translateY(-20%);
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 2.7vw;
+    height: 6vw;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5vw 1vw;
+    z-index: 2;
+    font-size: 2vw;
+    color: white;
+    font-family: orbitron, sans-serif;
+    font-weight: 400;
+    margin-bottom: -2vw;
+  }
+  
+  .nom{
+    top:40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+    white-space: nowrap; /* évite les retours à la ligne involontaires */
+    background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+    backdrop-filter: blur(10px); /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    border-radius: 5vw; /* Coins arrondis */
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  
+  
+  
+  .project-grid {
+    column-count: 2; /* ou auto selon la largeur */
+    column-gap: 1vw;
+  }
+  
+  .project-grid img {
+    width: 100%;
+    margin-bottom: 1vw;
+    break-inside: avoid; /* évite qu’une image soit coupée en deux */
+    border-radius: 1vw;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .project-grid video {
+    width: 100%;
+    margin-bottom: 1vw;
+    break-inside: avoid; /* évite qu’une image soit coupée en deux */
+    border-radius: 1vw;
+    display: block;
+    cursor: pointer;
+  }
+  
+  :fullscreen img,
+  :-webkit-full-screen img,
+  :-moz-full-screen img {
+    object-fit: contain;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+  }
+  
+  .back-btn {
+    background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+    backdrop-filter: blur(5px); /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+    border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    border-radius: 2vw;
+    padding: 0.5vw 2vw;
+    text-align: center;
+    display: inline-block;
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    margin: 2vw;
+    font-size: 3vw;
+    position: fixed;
+    top: 90vh;
+    z-index: 100;
+    cursor: pointer;
+  }
+  
+  .next-btn {
+    background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+    backdrop-filter: blur(5px); /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+    border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    border-radius: 2vw;
+    padding: 0.5vw 2vw;
+    text-align: center;
+    display: inline-block;
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    margin: 2vw;
+    font-size: 3vw;
+    position: fixed;
+    top: 90vh;
+    right: 0vw;
+    z-index: 100;
+    cursor: pointer;
+  }
+  
+  .contact-footer {
+    margin-top:10%;
+    position: relative;
+          bottom: unset;
+          width: 100vw;
+          color: white;
+          padding: 1vw;
+          gap: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          font-family: futura-pt, sans-serif;
+          font-weight: 400;
+          font-style: normal;
+            flex-wrap: wrap;
+            z-index: 4;
+  }
+  
+  
+  .contact-left {
+    padding: 1vw;
+    position: absolute;
+    flex: 1;
+    text-align: left;
+    display: flex;
+    font-size: 1vw;
+  }
+  
+  .contact-left p{
+    margin-right: 1vw;
+    padding: 1vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    border-radius: 5vw; /* Coins arrondis */
+    font-size: 2vw;
+  }
+
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* ou un autre z-index adapté */
+  pointer-events: none; /* si tu veux qu'il ne capte pas les clics */
+}

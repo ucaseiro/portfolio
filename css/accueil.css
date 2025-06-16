@@ -1,0 +1,500 @@
+@media (min-width : 667px){
+/* Reset de base pour les liens */
+a {
+  text-decoration: none;
+  color: white !important;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+}
+
+a.active {
+  background: rgba(255, 255, 255, 0.3); /* Couleur de fond transparente */
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Header général */
+header {
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
+  padding: 3vw 3vw;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 1vw;
+  position:fixed;
+  z-index: 10;
+  width: 100vw;
+  
+}
+
+header a{ 
+  display: inline-flex;       /* Correction : permet un meilleur alignement */
+  align-items: center;        /* Centre verticalement le texte */
+  justify-content: center;    /* Centre horizontalement */
+  
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5vw;
+  padding: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  text-decoration: none;       /* Pour éviter soulignement par défaut */
+  color: inherit;              /* Assure la couleur du texte */
+}
+
+/* Navigation */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Liens à droite (Gallery + Projet) */
+.nav-right {
+  display: flex;
+  gap: 20px;
+  
+}
+
+/* --- Fenêtre Modal --- */
+  /* --- Fenêtre Modal --- */
+  .fullscreen-cv {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .cv-content {
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  
+  .fullscreen-cv iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    display: block;
+  }
+  
+  .mobile-cv-link {
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    display: block;;
+    text-align: center;
+    margin-top: 1rem;
+    z-index: -1;
+  }
+  .close-btn {
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+body{
+  background: black;
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+
+.latest-project img{
+  object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+  display: block;
+  opacity: 1;
+  width: 100vw;
+  z-index: 1;
+}
+
+.portfolio{
+  text-align: center;
+  scale: 0.5;
+  transform: translate(-97%, 100%);
+  transform-origin: center;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: white;
+  position: absolute;
+  letter-spacing: 0.05em;
+  font-size: 4vw;
+  top: 30%;
+  left: 50vw;
+  z-index: 4;
+  width: 100vw;
+  
+}
+
+.cta-button1 {
+  scale: 0.6;
+  position: absolute;
+  top :40%;
+  left: 50%;
+  transform: translateX(-80%);
+  padding: 1.5% 3%;
+  font-size: clamp(2vw, 2vw, 1.5rem);
+  transform-origin: center;
+  font-family: orbitron, sans-serif;
+  background: rgba(255, 255, 255, 0.25); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.5); /* Ombre douce */
+  backdrop-filter: blur(5px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+  border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  color: white;
+  cursor: pointer;
+  border-radius: 100px;
+  z-index: 4;
+  transition: all 0.5s ease;
+}
+.cta-button1:hover {
+  scale: 0.63;
+  transform: translateX(-77%);
+}
+
+.latest-project {
+  top:0vw;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: 16 / 6; /* ratio paysage responsive */
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+
+}
+
+
+.contact-footer {
+  position: absolute; /* ou static */
+  transform: translateY(-230%);
+  top: 100vh;
+  width: 100vw;
+  color: black;
+  padding: 1vw;
+  gap: 20px; 
+   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: futura-pt, sans-serif;
+font-weight: 400;
+font-style: normal;
+  flex-wrap: wrap;
+  z-index: 4;
+}
+
+
+.contact-left {
+  padding: 1vw;
+  position: absolute;
+  flex: 1;
+  text-align: left;
+  display: flex;
+  font-size: 1vw;
+}
+.contact-left p{
+  color: white !important;
+  margin-right: 1vw;
+  padding: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  background: rgba(0, 0, 0, 0.25); /* Couleur de fond transparente */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 5vw; /* Coins arrondis */
+  font-size: 0.8vw;
+}
+
+
+}
+
+@media (max-width: 666px) {
+  /* Corps et liens */
+  body{
+    background: black;
+    height: 100vh;
+    overflow: hidden;
+    
+  }
+
+  a {
+    text-decoration: none;
+    color: white !important;
+  }
+  
+  a:hover {
+    color: grey;
+    text-decoration: underline;
+  }
+  
+  a.active {
+    background: rgba(255, 255, 255, 0.3); /* Couleur de fond transparente */
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* Header général */
+  header {
+    /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
+    padding: 3vw 3vw;
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1vw;
+    position:fixed;
+    z-index: 10;
+    width: 100vw;
+  }
+
+  header a{ 
+    display: inline-flex;       /* Correction : permet un meilleur alignement */
+    align-items: center;        /* Centre verticalement le texte */
+    justify-content: center;    /* Centre horizontalement */
+    
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 5vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    text-decoration: none;       /* Pour éviter soulignement par défaut */
+    color: inherit;              /* Assure la couleur du texte */
+    font-size: 2vw;
+  }
+  
+  /* Navigation */
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Liens à droite (Gallery + Projet) */
+  .nav-right {
+    display: flex;
+    gap: 20px;
+    
+  }
+
+
+
+  .fullscreen-cv {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .cv-content {
+    width: 80vw;
+    height: 50vh;
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  
+  .fullscreen-cv iframe {
+    display: none;
+  }
+  .mobile-cv-link {
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  width: 50%;
+  transform: translate(-50%,-50%);
+  display: block;;
+  text-align: center;
+  margin-top: 1rem;
+  }
+
+  .close-btn {
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+
+  /* Title */
+  .portfolio{
+    text-align: center;
+    scale: 1;
+    transform: translate(-50%, 100%);
+    transform-origin: center;
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    position: absolute;
+    letter-spacing: 0.05em;
+    font-size: 4vw;
+    top: 30%;
+    left: 50vw;
+    z-index: 4;
+    width: 100vw;
+    
+  }
+
+  /* CTA Buttons */
+  .cta-button1 {
+    scale: 1.5;
+    position: absolute;
+    top :40%;
+    left: 50%;
+    transform: translateX(-30%);
+    padding: 1.5% 3%;
+    font-size: clamp(2vw, 2vw, 1.5rem);
+    transform-origin: center;
+    font-family: orbitron, sans-serif;
+    background: rgba(255, 255, 255, 0.25); /* Couleur de fond transparente */
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.5); /* Ombre douce */
+    backdrop-filter: blur(5px); /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    color: white;
+    cursor: pointer;
+    border-radius: 100px;
+    z-index: 4;
+    transition: all 0.5s ease;
+  }
+  .cta-button1:hover {
+    scale: 1.6;
+    transform: translateX(-28%);
+  }
+  
+
+  .latest-project img{
+    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+    display: block;
+    opacity: 1;
+    max-height: 100vh;
+    z-index: 1;
+  }
+
+  /* Latest project */
+  .latest-project {
+    top:0vw;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: 16 / 6; /* ratio paysage responsive */
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+  
+  }
+
+  
+
+  /* Footer */
+  .contact-footer {
+    position: absolute; /* ou static */
+    transform: translateY(-350%);
+    top: 100vh;
+    width: 100vw;
+    color: black;
+    padding: 1vw;
+    gap: 20px; 
+     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    flex-wrap: wrap;
+    z-index: 4;
+  }
+  
+  
+  .contact-left {
+    padding: 1vw;
+    position: absolute;
+    flex: 1;
+    text-align: left;
+    display: flex;
+    font-size: 1vw;
+  }
+  .contact-left p{
+    color: white !important;
+    margin-right: 1vw;
+    padding: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    background: rgba(0, 0, 0, 0.25); /* Couleur de fond transparente */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+    border-radius: 5vw; /* Coins arrondis */
+    font-size: 2vw;
+  }
+
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* ou un autre z-index adapté */
+  pointer-events: none; /* si tu veux qu'il ne capte pas les clics */
+}

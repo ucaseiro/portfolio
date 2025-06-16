@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #e9e9e9; /* Base claire légèrement bleutée */
+  position: relative;
+}
+
+/* Couche principale pour dégradé flou animé */
+.blobs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blob1, .blob2, .blob3, .blob4, .blob5{
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.6;
+  animation: move 5s infinite alternate ease-in-out;
+  transition: all 0.5s ease;
+}
+
+/* Plusieurs couleurs pour l’effet holographique lumineux */
+.blue1 { background: rgb(0, 56, 160); top: 10%; left: 20%; }
+.blue2 { background: rgb(0, 94, 255); top: 50%; left: 60%; animation-delay: 0.83s; }
+.blue3 { background: rgb(200, 225, 255); top: 30%; left: 40%; animation-delay: 1.7s; }
+.blue4 { background: rgb(0, 103, 200); top: 70%; left: 10%; animation-delay: 2.5s; }
+.blue5 { background: rgb(206, 235, 255); top: -20%; left: -20%; animation-delay: 1.7s; }
+
+.red1 { background: rgb(160, 0, 0); top: 10%; left: 20%; }
+.red2 { background: rgb(255, 0, 0); top: 50%; left: 60%; animation-delay: 0.83s; }
+.red3 { background: rgb(255, 200, 200); top: 30%; left: 40%; animation-delay: 1.7s; }
+.red4 { background: rgb(200, 0, 0); top: 70%; left: 10%; animation-delay: 2.5s; }
+.red5 { background: rgb(255, 206, 206); top: -20%; left: -20%; animation-delay: 1.7s; }
+
+.green1 { background: rgb(0, 160, 85); top: 10%; left: 20%; }
+.green2 { background: rgb(0, 255, 132); top: 50%; left: 60%; animation-delay: 0.83s; }
+.green3 { background: rgb(200, 255, 234); top: 30%; left: 40%; animation-delay: 1.7s; }
+.green4 { background: rgb(0, 200, 157); top: 70%; left: 10%; animation-delay: 2.5s; }
+.green5 { background: rgb(206, 255, 236); top: -20%; left: -20%; animation-delay: 1.7s; }
+
+.purple1 { background: rgb(128, 0, 160); top: 10%; left: 20%; }
+.purple2 { background: rgb(221, 0, 255); top: 50%; left: 60%; animation-delay: 0.83s; }
+.purple3 { background: rgb(249, 200, 255); top: 30%; left: 40%; animation-delay: 1.7s; }
+.purple4 { background: rgb(183, 0, 200); top: 70%; left: 10%; animation-delay: 2.5s; }
+.purple5 { background: rgb(248, 206, 255); top: -20%; left: -20%; animation-delay: 1.7s; }
+
+.orange1 { background: rgb(255, 87, 21); top: 10%; left: 20%; }
+.orange2 { background: rgb(255, 140, 0); top: 50%; left: 60%; animation-delay: 0.83s; }
+.orange3 { background: rgb(255, 225, 200); top: 30%; left: 40%; animation-delay: 1.7s; }
+.orange4 { background: rgb(200, 43, 0); top: 70%; left: 10%; animation-delay: 2.5s; }
+.orange5 { background: rgb(255, 242, 206); top: -20%; left: -20%; animation-delay: 1.7s; }
+
+@keyframes move {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(-15%, -10%) scale(1.5); }
+}
+
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0) !important;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a.active {
+  background: rgba(255, 255, 255, 0.8);
+  color: grey !important;
+  text-decoration: underline;
+}
+
+header {
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
+  padding: 3vw 3vw;
+  font-family: orbitron, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1vw;
+  position:fixed;
+  z-index: 10;
+  width: 100vw;
+  
+}
+
+header a{ 
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border-top: 2px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-left: 2px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-radius: 5vw; /* Coins arrondis */
+  padding: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;}
+
+/* Navigation */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Liens à droite (Gallery + Projet) */
+.nav-right {
+  display: flex;
+  gap: 20px;
+  
+}
+.main-nav {
+  position: relative;
+  top: 4vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5vw 1vw;
+  font-size: 1.2vw;
+  color: white;
+  font-family: orbitron, sans-serif;
+  font-weight: 400;
+  margin-bottom: 31vw;
+  z-index: 12;
+}
+
+
+
+.title{
+  top:50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  font-size: 1vw;
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 5vw; /* Coins arrondis */
+  padding: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  white-space: nowrap; /* évite les retours à la ligne involontaires */
+}
+
+.divider.h-left {
+  left: 20%;
+  background:white;
+}
+
+.divider.h-right {
+  left: 80%;
+  background: white;
+}
+
+.gallery {
+  scale: 1.15;
+  top: -4vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARDS */
+.card {
+  position: absolute;
+  width: 30vw;
+  aspect-ratio: 1/1;
+  background-color: #aaa;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  z-index: 0;
+  /* border-radius: 1vw; */
+}
+
+/* Cartes visibles */
+.card.left {
+  left: 40%;
+  transform: translateX(-120%) scale(0.9);
+  background-color: #777;
+  filter: blur(6px);
+  z-index: 2;
+  opacity: 0.3;
+  /* border-radius: 0.8vw; */
+  overflow: hidden;
+}
+
+.card.center {
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  background-color: #bbb;
+  opacity: 1;
+  z-index: 3;
+  cursor: pointer;
+  /* border-radius: 0.8vw; */
+  overflow: hidden;
+}
+.card.center:hover{
+  scale: 1.05;
+  transform: translateX(-48%);
+}
+.card.right {
+  left: 30%;
+  transform: translateX(120%) scale(0.9);
+  background-color: #777;
+  z-index: 2;
+  opacity: 0.3;
+  filter: blur(6px);
+  /* border-radius: 0.8vw; */
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+  display: block;
+}
+
+.arrow-left {
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border-top: 2px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-left: 2px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-bottom: none;
+  border-right: none;
+  border-radius: 5vw;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 8;
+  position: absolute;
+  transition: all 0.5s ease;
+  left: 20%;
+}
+
+.arrow-left:hover{
+  scale: 1.1;
+}
+.arrow-right:hover{
+  scale: 1.1;
+}
+
+.arrow-right {
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border-top: 2px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-left: 2px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-bottom: none;
+  border-right: none;
+  border-radius: 5vw;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 8;
+  position: absolute;
+  transition: all 0.5s ease;
+  right: 20%;
+}
+
+/* INFO BOX */
+
+.window{
+  position: absolute;
+  top: 18vw;
+  left: 25vw;
+  scale: 1;
+  z-index: 7;
+}
+.info-box {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  color: white;
+  background-color: #1e1e1e;
+  overflow: hidden;
+  border-radius: 0.5vw;
+  font-size: 0.8vw;
+  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  border-radius: 1vw; /* Coins arrondis */
+  z-index: 5;
+  height: auto;
+  width: 14vw;
+}
+
+
+.info-box p{
+  padding: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  font-family: video, sans-serif;
+}
+
+/* BIG NUMBER */
+.big-number {
+  position: absolute;
+  bottom: -28vw;
+  left: 67%;
+  font-family: industry-inc-outline, sans-serif;
+font-weight: 400;
+font-style: normal;
+  font-size: 20vw;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 6;
+  cursor: default;
+}
+
+
+.contact-footer {
+  position: absolute; /* ou static */
+  transform: translateY(-250%);
+  top: 100vh;
+  width: 100vw;
+
+  color: black;
+  padding: 20px;
+  gap: 20px; 
+   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: orbitron, sans-serif;
+  flex-wrap: wrap;
+  z-index: 4;
+}
+
+
+.contact-left {
+  padding: 1vw;
+  position: absolute;
+  flex: 1;
+  text-align: left;
+  display: flex;
+  font-size: 1vw;
+}
+
+.contact-left p{
+  margin-right: 1vw;
+  padding: 1vw;
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  backdrop-filter: blur(10px); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-left: 1px solid rgba(255, 255, 255, 0.5); /* Bord fin translucide */
+  border-radius: 5vw; /* Coins arrondis */
+  font-size: 0.6vw;
+}
