@@ -7,7 +7,8 @@ a {
 
 a:hover {
   color: grey;
-  text-decoration: underline;
+  transform: scale(1.05);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
 }
 
 a.active {
@@ -35,7 +36,7 @@ header a{
   
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px) brightness(80%);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 5vw;
@@ -44,7 +45,13 @@ header a{
   padding-right: 2vw;
   text-decoration: none;       /* Pour éviter soulignement par défaut */
   color: inherit;              /* Assure la couleur du texte */
+  transition: all 0.5s ease;
 }
+
+b {
+  font-weight: bold;
+}
+
 /* Navigation */
 header nav {
   display: flex;
@@ -87,20 +94,6 @@ header nav {
   display: block;
 }
 
-.mobile-cv-link {
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-font-weight: 300;
-font-style: normal;
-  position: absolute;
-  top: 45%;
-  left: 55%;
-  width: 100%;
-  transform: translate(-50%,-50%);
-  display: block;;
-  text-align: center;
-  margin-top: 1rem;
-  z-index: -1;
-}
 .close-btn {
   font-family: futura-pt, sans-serif;
 font-weight: 400;
@@ -152,7 +145,7 @@ font-style: normal;
   max-width: 85vw;
   max-height: 85vh;
   object-fit: contain; /* Très important pour que ça rentre dans le cadre sans déformation */
-  border-radius: 0.5rem;
+  
 }
 
 .close-media {
@@ -175,7 +168,7 @@ font-style: normal;
 
 body {
   margin: 0;
-  color: white;
+  color: black;
   font-family: 'Orbitron', sans-serif;
   overflow-x: hidden;
 }
@@ -186,27 +179,25 @@ body {
   padding: 1vw;
   top: 10vw;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
-  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  border-radius: 2vw; /* Coins arrondis */
+  margin-left: 17vw;
+  margin-right: 17vw ;
+  
 }
 
-
-.pp{
-  flex: 2;
-   background: grey;
-    border-radius: 1vw;
-     height: 25vw;
-     overflow: hidden;
+.window p{
+  color: white;
+  font-family: futura-pt, sans-serif;
+font-weight: 100;
+font-style: normal;
+  font-size: 1vw;
+  line-height: 1.6;
 }
-.pp img{
+
+.project-hero {
   width: 100%;
-  object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+  height: auto;
   display: block;
-  transform: translateY(-20%);
+  margin-bottom: 2vw;
 }
 
 .main-nav {
@@ -234,19 +225,23 @@ body {
   font-family: itc-avant-garde-gothic-pro, sans-serif;
 font-weight: 300;
 font-style: normal;
+font-size: 1.5vw;
   white-space: nowrap; /* évite les retours à la ligne involontaires */
-  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
+
+  
+  backdrop-filter: blur(10px) brightness(90%); /* Effet de flou derrière */
   -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  
   border-radius: 5vw; /* Coins arrondis */
   padding: 1vw;
   padding-left: 2vw;
   padding-right: 2vw;
 }
 
-
+.nom2{
+height: 0;
+width: 0;
+}
 
 .project-grid {
   column-count: 4; /* ou auto selon la largeur */
@@ -257,7 +252,6 @@ font-style: normal;
   width: 100%;
   margin-bottom: 1vw;
   break-inside: avoid; /* évite qu’une image soit coupée en deux */
-  border-radius: 1vw;
   display: block;
   cursor: pointer;
 }
@@ -266,7 +260,6 @@ font-style: normal;
   width: 100%;
   margin-bottom: 1vw;
   break-inside: avoid; /* évite qu’une image soit coupée en deux */
-  border-radius: 1vw;
   display: block;
   cursor: pointer;
 }
@@ -280,39 +273,55 @@ font-style: normal;
   background: black;
 }
 
-.back-btn {
-  background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+.back-btn a{
+  font-family: neue-haas-grotesk-display, sans-serif;
+font-weight: 100;
+font-style: normal;
+  background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
   box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(5px); /* Effet de flou derrière */
+  backdrop-filter: blur(5px) brightness(80%); /* Effet de flou derrière */
   -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
   border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
   border-radius: 2vw;
-  padding: 0.5vw 2vw;
+  padding: 0.5vw 1vw;
   text-align: center;
   display: inline-block;
-  margin: 2vw;
-  font-size: 1.2vw;
+  margin: 4vw;
+  margin-top: 2vw;
+  font-size: 2vw;
   position: fixed;
   top: 80vh;
   cursor: pointer;
+  transition: all 0.5s ease;
 }
 
-.next-btn {
-  background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+.next-btn a{
+  font-family: neue-haas-grotesk-display, sans-serif;
+font-weight: 100;
+font-style: normal;
+  background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
   box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(5px); /* Effet de flou derrière */
-  -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+  backdrop-filter: blur(5px) brightness(80%); /* Effet de flou derrière */
+  -webkit-backdrop-filter: blur(5px) brightness(80%); /* Compatibilité Safari */
   border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
   border-radius: 2vw;
-  padding: 0.5vw 2vw;
+  padding: 0.5vw 1vw;
   text-align: center;
   display: inline-block;
-  margin: 2vw;
-  font-size: 1.2vw;
+  margin: 4vw;
+  margin-top: 2vw;
+  font-size: 2vw;
   position: fixed;
   top: 80vh;
   right: 0vw;
   cursor: pointer;
+  transition: all 0.5s ease;
+}
+.next-btn a:hover{
+  scale: 1.1;
+}
+.back-btn a:hover{
+  scale: 1.1;
 }
 
 .contact-footer {
@@ -326,8 +335,8 @@ font-style: normal;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        font-family: futura-pt, sans-serif;
-        font-weight: 400;
+        font-family: itc-avant-garde-gothic-pro, sans-serif;
+        font-weight: 300;
         font-style: normal;
           flex-wrap: wrap;
           z-index: 4;
@@ -344,17 +353,49 @@ font-style: normal;
 }
 
 .contact-left p{
+  color: white !important;
   margin-right: 1vw;
   padding: 1vw;
   padding-top: 0.5vw;
   padding-bottom: 0.5vw;
-  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
   border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 5vw; /* Coins arrondis */
-  font-size: 0.8vw;
+  font-size: 1vw;
+  transition: all 0.5s ease;
 }
 
+.contact-left p:hover{
+  scale: 1.07;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.2); /* Ombre douce */
+}
 
+.contact-left a:hover{
+  box-shadow: none;
+}
+
+}
+
+@media (max-height: 490px) {
+  .window {
+    position: relative;
+    border-radius: 1vw;
+    margin: 1vw;
+    margin-bottom: 5vw;
+    padding: 1vw;
+    top: 8vw;
+    overflow: hidden;
+  }
+  .window p{
+    color: white;
+    font-family: futura-pt, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+    font-size: 1.5vw;
+  }
+  
 }
 
 @media (max-width: 666px) {
@@ -398,12 +439,12 @@ font-style: normal;
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 5vw;
-    padding: 1vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding: 2vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
     text-decoration: none;       /* Pour éviter soulignement par défaut */
     color: inherit;              /* Assure la couleur du texte */
-    font-size: 2vw;
+    font-size: 3vw;
   }
   
   /* Navigation */
@@ -421,42 +462,35 @@ font-style: normal;
   }
   
   /* --- Fenêtre Modal --- */
-  .fullscreen-cv {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.1);
-    backdrop-filter: blur(20px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  
-  .cv-content {
-    width: 80vw;
-    height: 50vh;
-    position: relative;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 1rem;
-    padding: 1rem;
-  }
-  
-  .fullscreen-cv iframe {
-    display: none;
-  }
-  .mobile-cv-link {
-    font-family: itc-avant-garde-gothic-pro, sans-serif;
-font-weight: 300;
-font-style: normal;
-  position: absolute;
-  top: 45%;
-  left: 55%;
-  width: 50%;
-  transform: translate(-50%,-50%);
-  display: block;;
-  text-align: center;
-  margin-top: 1rem;
-  }
+/* --- Fenêtre Modal --- */
+.fullscreen-cv {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.cv-content {
+  width: 85vw;
+  height: 85vh;
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.fullscreen-cv iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+
 
   .close-btn {
     font-family: futura-pt, sans-serif;
@@ -468,14 +502,19 @@ font-style: normal;
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 4vw;
     cursor: pointer;
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    width: 6vw;
+    height: 6vw;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .main-nav {
+    position: absolute;
+    opacity: 0;
   }
   
   .media-overlay {
@@ -509,7 +548,6 @@ font-style: normal;
     max-width: 85vw;
     max-height: 85vh;
     object-fit: contain; /* Très important pour que ça rentre dans le cadre sans déformation */
-    border-radius: 0.5rem;
   }
   
   .close-media {
@@ -529,7 +567,13 @@ font-style: normal;
   border-radius: 50%;
   }
   
-  
+  .project-hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 2vw;
+  }
+
   body {
     margin: 0;
     color: white;
@@ -539,91 +583,61 @@ font-style: normal;
   .window {
     position: relative;
     border-radius: 1vw;
-    margin: 2vw;
+    margin: 3vw;
+    margin-bottom: 5vw;
     padding: 1vw;
-    top: 10vw;
+    top: 13vw;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-    backdrop-filter: blur(10px); /* Effet de flou derrière */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-    border-radius: 2vw; /* Coins arrondis */
   }
   
+  .window p{
+    color: white;
+    font-family: futura-pt, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+    font-size: 2.5vw;
+  }
   
   .pp{
-    flex: 2;
+    flex: 1.5;
      background: grey;
-      border-radius: 1vw;
-       height: 25vw;
+       aspect-ratio: 1/1;
        overflow: hidden;
   }
   .pp img{
-    width: 100%;
+    height: 100%;
     object-fit: cover;  /* Couvre entièrement la carte sans déformation */
     display: block;
-    transform: translateY(-20%);
+    
   }
   
-  .main-nav {
-    position: fixed;
-    top: 2.7vw;
-    height: 6vw;
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5vw 1vw;
-    z-index: 2;
-    font-size: 2vw;
-    color: white;
-    font-family: orbitron, sans-serif;
-    font-weight: 400;
-    margin-bottom: -2vw;
-  }
-  
-  .nom{
-    top:40%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    text-align: center;
+  .nom2{
     font-family: itc-avant-garde-gothic-pro, sans-serif;
   font-weight: 300;
   font-style: normal;
-    white-space: nowrap; /* évite les retours à la ligne involontaires */
-    background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-    backdrop-filter: blur(10px); /* Effet de flou derrière */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-    border-radius: 5vw; /* Coins arrondis */
-    padding: 1vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    white-space: nowrap;
+    margin-bottom: 3%;
   }
   
   
   
   .project-grid {
     column-count: 2; /* ou auto selon la largeur */
-    column-gap: 1vw;
+    column-gap: 2vw;
   }
   
   .project-grid img {
     width: 100%;
-    margin-bottom: 1vw;
+    margin-bottom: 2vw;
     break-inside: avoid; /* évite qu’une image soit coupée en deux */
-    border-radius: 1vw;
     display: block;
     cursor: pointer;
   }
   
   .project-grid video {
     width: 100%;
-    margin-bottom: 1vw;
+    margin-bottom: 2vw;
     break-inside: avoid; /* évite qu’une image soit coupée en deux */
-    border-radius: 1vw;
     display: block;
     cursor: pointer;
   }
@@ -636,52 +650,55 @@ font-style: normal;
     height: 100vh;
     background: black;
   }
-  
-  .back-btn {
-    background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+
+  .back-btn a{
+    font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+    background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-    backdrop-filter: blur(5px); /* Effet de flou derrière */
+    backdrop-filter: blur(5px) brightness(80%); /* Effet de flou derrière */
     -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
     border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-    border-radius: 2vw;
-    padding: 0.5vw 2vw;
+    border-radius: 4vw;
+    padding: 1vw 2vw;
     text-align: center;
     display: inline-block;
-    font-family: futura-pt, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    margin: 2vw;
-    font-size: 3vw;
+    margin: 4vw;
+    margin-top: 2vw;
+    font-size: 4vw;
     position: fixed;
-    top: 90vh;
-    z-index: 100;
+    top: 80vh;
     cursor: pointer;
+    transition: all 0.5s ease;
   }
   
-  .next-btn {
-    background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
+  .next-btn a{
+    font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+    background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-    backdrop-filter: blur(5px); /* Effet de flou derrière */
-    -webkit-backdrop-filter: blur(5px); /* Compatibilité Safari */
+    backdrop-filter: blur(5px) brightness(80%); /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(5px) brightness(80%); /* Compatibilité Safari */
     border: 2px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-    border-radius: 2vw;
-    padding: 0.5vw 2vw;
+    border-radius: 4vw;
+    padding: 1vw 2vw;
     text-align: center;
     display: inline-block;
-    font-family: futura-pt, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    margin: 2vw;
-    font-size: 3vw;
+    margin: 4vw;
+    margin-top: 2vw;
+    font-size: 4vw;
     position: fixed;
-    top: 90vh;
+    top: 80vh;
     right: 0vw;
-    z-index: 100;
     cursor: pointer;
+    transition: all 0.5s ease;
   }
   
   .contact-footer {
     margin-top:10%;
+    margin-bottom:9.2%;
     position: relative;
           bottom: unset;
           width: 100vw;
@@ -709,14 +726,15 @@ font-style: normal;
   }
   
   .contact-left p{
-    margin-right: 1vw;
-    padding: 1vw;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
-    background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
+    color: white !important;
+    margin-right: 2vw;
+    padding: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
     border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
     border-radius: 5vw; /* Coins arrondis */
-    font-size: 2vw;
+    font-size: 3vw;
   }
 
 }

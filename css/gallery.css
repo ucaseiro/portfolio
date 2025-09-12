@@ -1,25 +1,12 @@
 @media (min-width : 667px){
 
 /* Reset de base pour les liens */
-a {
-  text-decoration: none;
-  color: white !important;
-}
 
-a:hover {
-  color: grey;
-  text-decoration: underline;
-}
-
-a.active {
-  background: rgba(255, 255, 255, 0.3); /* Couleur de fond transparente */
-  color: rgba(255, 255, 255, 0.6) !important;
-}
 
 .container{
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+overflow: hidden;
 }
 
 /* Header général */
@@ -36,23 +23,41 @@ font-size: 1vw;
   
 }
 
-header a{ 
-  display: inline-flex;       /* Correction : permet un meilleur alignement */
-  align-items: center;        /* Centre verticalement le texte */
-  justify-content: center;    /* Centre horizontalement */
-  
+/* Reset de base */
+a {
+  text-decoration: none;
+  color: white !important;
+}
+
+/* Header liens */
+header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 5vw;
-  padding: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  text-decoration: none;       /* Pour éviter soulignement par défaut */
-  color: inherit;              /* Assure la couleur du texte */
+  padding: 1vw 2vw;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.5s ease;
+  z-index: 100;
 }
+
+header a:hover {
+  color: grey;
+  transform: scale(1.05);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3);
+}
+
+a.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
 
 /* Navigation */
 header nav {
@@ -65,7 +70,7 @@ header nav {
 .nav-right {
   display: flex;
   gap: 20px;
-  transform: translateX(18.2%);
+  
   
 }
 
@@ -131,75 +136,14 @@ font-style: normal;
   justify-content: center;
 }
 
-body {
+.gallery-page{
   margin: 0;
-  height: 100dvh;
-  overflow: hidden;
+  height: 100vh;
   position: relative;
-  background: #000000; /* Mode clair par défaut */
-
+  background-color: black;
+  top: 100vh;
+z-index: 2;
 }
-
-/* Blobs animés */
-.blobs {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.blob1{
-  position: absolute;
-  width: 50vw;
-  height: 50vw;
-  border-radius: 50%;
-  opacity: 0.1;
-  filter: blur(120px);
-  animation: move 20s infinite alternate ease-in-out;
-  transition: all 0.5s ease;
-}
-
-.blob2{
-  position: absolute;
-  width: 50vw;
-  height: 50vw;
-  border-radius: 50%;
-  opacity: 0.1;
-  filter: blur(120px);
-  animation: move2 20s infinite alternate ease-in-out;
-  transition: all 0.5s ease;
-}
-
-/* Animations blobs : couleurs par classe */
-.animated-gradient-green{ background: rgb(7, 220, 99); }
-.animated-gradient-purple{ background: rgb(225, 0, 255); }
-.animated-gradient-orange{ background: rgb(248, 120, 13); }
-.animated-gradient-red{ background: rgb(255, 0, 0); }
-.animated-gradient-blue{ background: rgb(0, 106, 255); }
-
-.animated-gradient-green2{ background: rgb(24, 148, 53); }
-.animated-gradient-purple2{ background: rgb(170, 0, 255); }
-.animated-gradient-orange2{ background: rgb(225, 64, 10); }
-.animated-gradient-red2{ background: rgb(175, 11, 11); }
-.animated-gradient-blue2{ background: rgb(38, 45, 188); }
-
-@keyframes move {
-  0% { transform: translate(0, 0) scale(1); }
-  25%{ transform:  scale(2.5); }
-  50% { transform: translate(-50%, -50%) scale(1.5); }
-  75%{ transform:  scale(2.5); }
-  100% { transform: translate(-100%, -100%) scale(2); }
-}
-
-@keyframes move2 {
-  0% { transform: translate(70vw, 50vh) scale(1); }
-  25%{ transform:  scale(2.5); }
-  50% { transform: translate(70%, 70%) scale(1.5); }
-  75%{ transform:  scale(2.5); }
-  100% { transform: translate(150%, 20%) scale(2); }
-}
-
-
 
 /* MAIN NAV */
 .main-nav {
@@ -213,72 +157,44 @@ body {
   font-family: orbitron, sans-serif;
   font-weight: 400;
   margin-bottom: 31vw;
-  z-index: 12;
+  z-index: 0;
+  backdrop-filter: blur(100px);
 }
 
-
-
-.title{
-  top:50%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  text-align: center;
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-font-weight: 300;
-font-style: normal;
-  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
-  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  border-radius: 5vw; /* Coins arrondis */
-  padding: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  white-space: nowrap; /* évite les retours à la ligne involontaires */
-}
-
-.divider.h-left {
-  left: 20%;
-  background:white;
-}
-
-.divider.h-right {
-  left: 80%;
-  background: white;
-}
 
 .gallery {
-  scale: 1.15;
-  top: -4vw;
-  position: relative;
+  
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
+  top: 0; /* enlever le -5vw */
 }
 
 /* CARDS */
 .card {
   position: absolute;
-  width: 30vw;
-  aspect-ratio: 1/1;
-  background-color: #aaa;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   transition: all 0.5s ease;
   opacity: 0;
-  transform: scale(0.8);
   z-index: 0;
-  /* border-radius: 1vw; */
+  overflow: hidden;
 }
 
 /* Cartes visibles */
 .card.left {
-  left: 40%;
-  transform: translateX(-120%) scale(0.9);
+  left: 50%;
+  transform: translateX(-150%);
   background-color: #777;
-  filter: blur(6px);
   z-index: 2;
-  opacity: 0.3;
+  opacity: 1;
+  filter: blur(6px);
   /* border-radius: 0.8vw; */
   overflow: hidden;
 }
@@ -289,20 +205,53 @@ font-style: normal;
   background-color: #bbb;
   opacity: 1;
   z-index: 3;
+  
   cursor: pointer;
   /* border-radius: 0.8vw; */
   overflow: hidden;
 }
-.card.center:hover{
-  scale: 1.05;
-  transform: translateX(-48%);
+
+
+.card-img:hover{
+  opacity: 0.5;
 }
+
+.card-title{
+  position: absolute;
+  text-align: center;
+  top: 0%;
+  left: 0%;
+  opacity: 1;
+  backdrop-filter: brightness(50%);
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  color: white;
+  transition: all 0.5s ease;
+  
+}
+
+.card-title h{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 1.5vw;
+  
+}
+
+
+
 .card.right {
-  left: 30%;
-  transform: translateX(120%) scale(0.9);
+  left: 50%;
+  transform: translateX(50%);
   background-color: #777;
   z-index: 2;
-  opacity: 0.3;
+  opacity: 1;
   filter: blur(6px);
   /* border-radius: 0.8vw; */
   overflow: hidden;
@@ -315,47 +264,45 @@ font-style: normal;
   display: block;
 }
 
-.arrow-left {
-  font-family: neue-haas-grotesk-display, sans-serif;
-font-weight: 100;
-font-style: normal;
-  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  border: none; /* Bord fin translucide */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
-  border-radius: 5vw;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  z-index: 8;
-  position: absolute;
-  left: 20%;
-  transition: all 0.5s ease;
+.card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+  display: block;
 }
 
-.arrow-left:hover{
-  scale: 1.1;
-}
-.arrow-right:hover{
-  scale: 1.1;
-}
-
+.arrow-left,
 .arrow-right {
   font-family: neue-haas-grotesk-display, sans-serif;
 font-weight: 100;
 font-style: normal;
-  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  border: none; /* Bord fin translucide */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
-  border-radius: 5vw;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  z-index: 8;
-  position: absolute;
+background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
+border: 1px solid rgba(255, 255, 255, 0.3); /* Bord fin translucide */
+backdrop-filter: blur(10px); /* Effet de flou derrière */
+border-radius: 25vw;
+color: rgba(255, 255, 255, 0.8);
+font-size: 2vw;
+padding: 0.5vw 1.1vw;
+cursor: pointer;
+z-index: 8;
+position: absolute;
+top: 50vh;
+transform: translateY(-50%) scale(1);
+transition: all 0.5s ease;
+}
+
+.arrow-left {
+  left: 20%;
+}
+
+.arrow-right {
   right: 20%;
-  transition: all 0.5s ease;
+}
+
+.arrow-left:hover,
+.arrow-right:hover{
+  transform: scale(1.2) translateY(-40%);
+ ;
 }
 
 /* INFO BOX */
@@ -369,7 +316,7 @@ font-style: normal;
 }
 .info-box {
   position: absolute;
-  bottom: 15%;
+  top: 30vh;
   left: 5%;
   color: white;
   background-color: #1e1e1e;
@@ -392,31 +339,45 @@ font-style: normal;
   padding: 1vw;
   padding-top: 0.5vw;
   padding-bottom: 0.5vw;
-  font-family: neue-haas-grotesk-display, sans-serif;
-font-weight: 100;
-font-style: normal;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* BIG NUMBER */
-.big-number {
+.carousel-indicators {
+  
   position: absolute;
-  top: 100vh;
-  transform: translateY(-225%);
-  padding: 1vw;
-  left: 67%;
-  font-family: industry-inc-outline, sans-serif;
-font-weight: 400;
-font-style: normal;
-  font-size: 20vw;
-  color: rgba(255, 255, 255, 0.8);
-  z-index: 6;
-  cursor: default;
+  top: 88vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 8px;
+  z-index: 10;
+  transition: all 0.5s ease;
 }
+
+.carousel-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-indicators .active {
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff; /* couleur plus foncée ou plus visible */
+  transform: translateY(-15%);
+}
+
 
 
 .contact-footer {
   position: absolute; /* ou static */
-  transform: translateY(-230%);
+  transform: translateY(-270%);
   top: 100vh;
   width: 100vw;
   color: white;
@@ -425,9 +386,9 @@ font-style: normal;
    display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-family: futura-pt, sans-serif;
-font-weight: 400;
-font-style: normal;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   flex-wrap: wrap;
   z-index: 4;
 }
@@ -450,82 +411,59 @@ font-style: normal;
   background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
   border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
   border-radius: 5vw; /* Coins arrondis */
-  font-size: 0.8vw;
+  font-size: 1vw;
+  transition: all 0.5s ease;
 }
 
-
+.contact-left p:hover{
+  scale: 1.07;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
+}
 
 } 
-
 @media (max-height: 490px) {
-  .window {
-    position: absolute;
-    top: 25vh;
-    left: 25vw;
-    scale: 1;
-    z-index: 7;
-  }
-  .gallery{
-    position: relative;
-    top: -12vh;
-    width: 100vw;
-  }
-  .big-number {
-    position: absolute;
-  top: 100vh;
-  transform: translateY(-242%);
-    left: 72%;
-    font-family: industry-inc-outline, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16vw;
-    color: white;
-    z-index: 6;
-  }
-  header{
-    z-index: 40;
-  }
+  .arrow-left,
+.arrow-right {
+  transform: scale(1);
+}
+
+.carousel-indicators{
+  transform: scale(1);
+}
 }
 
 @media (max-width: 666px) {
   /* Corps et liens */
-  body {
-    margin: 0;
-  height: 100dvh;
-  overflow: hidden;
-  background: #000000; /* Mode clair par défaut */
-  }
-  
-  /* Blobs animés */
-  .blobs {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-  }
+body{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  overflow:hidden;
+}
 
   .container{
     width: 100vw;
-    height: 100dvh;
+    height: 100vh;
     overflow: hidden;
   }
   
   .fullscreen-cv {
     position: fixed;
     inset: 0;
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.1);
     backdrop-filter: blur(20px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
   }
   
   .cv-content {
-    width: 80vw;
-    height: 50vh;
+    width: 85vw;
+    height: 85vh;
     position: relative;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
@@ -533,92 +471,32 @@ font-style: normal;
   }
   
   .fullscreen-cv iframe {
-    display: none;
-  }
-  .mobile-cv-link {
-    font-family: itc-avant-garde-gothic-pro, sans-serif;
-font-weight: 300;
-font-style: normal;
-  position: absolute;
-  top: 45%;
-  left: 55%;
-  width: 50%;
-  transform: translate(-50%,-50%);
-  display: block;;
-  text-align: center;
-  margin-top: 1rem;
-  }
-
-  .close-btn {
-    font-family: futura-pt, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .blob1{
-    position: absolute;
-    width: 50vw;
-    height: 50vw;
-    border-radius: 50%;
-    opacity: 0.2;
-    filter: blur(120px);
-    animation: move 20s infinite alternate ease-in-out;
-    transition: all 0.5s ease;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    display: block;
   }
   
-  .blob2{
-    position: absolute;
-    width: 50vw;
-    height: 50vw;
-    border-radius: 50%;
-    opacity: 0.2;
-    filter: blur(120px);
-    animation: move2 20s infinite alternate ease-in-out;
-    transition: all 0.5s ease;
-  }
+    .close-btn {
+      font-family: futura-pt, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+      position: absolute;
+      top: 1rem;
+      left: 91vw;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      font-size: 4vw;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 6vw;
+      height: 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   
-  /* Animations blobs : couleurs par classe */
-  .animated-gradient-green{ background: rgb(7, 220, 99); }
-  .animated-gradient-purple{ background: rgb(225, 0, 255); }
-  .animated-gradient-orange{ background: rgb(248, 120, 13); }
-  .animated-gradient-red{ background: rgb(255, 0, 0); }
-  .animated-gradient-blue{ background: rgb(0, 106, 255); }
-  
-  .animated-gradient-green2{ background: rgb(24, 148, 53); }
-  .animated-gradient-purple2{ background: rgb(170, 0, 255); }
-  .animated-gradient-orange2{ background: rgb(225, 64, 10); }
-  .animated-gradient-red2{ background: rgb(175, 11, 11); }
-  .animated-gradient-blue2{ background: rgb(38, 45, 188); }
-  
-  @keyframes move {
-    0% { transform: translate(0, 0) scale(1); }
-    25%{ transform:  scale(2.5); }
-    50% { transform: translate(-50%, -50%) scale(1.5); }
-    75%{ transform:  scale(2.5); }
-    100% { transform: translate(-100%, -100%) scale(2); }
-  }
-  
-  @keyframes move2 {
-    0% { transform: translate(150vw, 150vh) scale(1); }
-    25%{ transform:  scale(2.5); }
-    50% { transform: translate(100vw, 100vh) scale(1.5); }
-    75%{ transform:  scale(2.5); }
-    100% { transform: translate(70vw, 70vh) scale(2); }
-  }
 
 /* Reset de base pour les liens */
 a {
@@ -661,12 +539,12 @@ a.active {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 5vw;
-    padding: 1vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding: 2vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
     text-decoration: none;       /* Pour éviter soulignement par défaut */
     color: inherit;              /* Assure la couleur du texte */
-    font-size: 2vw;
+    font-size: 3vw;
   }
   
   /* Navigation */
@@ -680,62 +558,31 @@ a.active {
   .nav-right {
     display: flex;
     gap: 20px;
-    transform: translateX(18.2%);
+    transition: all 0.5s ease;
   }
   
   /* Liens à droite (Gallery + Projet) */
   .nav-right {
     display: flex;
     gap: 20px;
+    transition: all 0.5s ease;
   }
 
   .main-nav {
-    position: relative;
-  top: 4vw;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5vw 1vw;
-  font-size: 2vw;
-  color: white;
-  font-family: orbitron, sans-serif;
-  font-weight: 400;
-  margin-bottom: 31vw;
-  z-index: 12;
+overflow: hidden;
   }
   
-  .title{
-    top:50%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(-30%);
-  text-align: center;
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-font-weight: 300;
-font-style: normal;
-  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
-  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  border-radius: 5vw; /* Coins arrondis */
-  padding: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  white-space: nowrap; /* évite les retours à la ligne involontaires */
-  }
-  
-  
-  
-
   .gallery{
-    position: relative;
+    position: absolute;
     top: 0vw;
     width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
   
   .card {
-    width: 80vw;
-    aspect-ratio: 1/1;
+    width: 100vw;
+    height: 100vh;
     background-color: #aaa;
     transition: all 0.5s ease;
     opacity: 0;
@@ -746,9 +593,9 @@ font-style: normal;
 
   .card.left {
     left: 50%;
-    transform: translateX(-130%) scale(0.85);
+    transform: translateX(-150%);
     background-color: #777;
-    opacity: 0.3;
+    opacity: 1;
     z-index: 2;
     filter: blur(6px);
   }
@@ -763,10 +610,10 @@ font-style: normal;
   }
 
   .card.right {
-    left: -10%;
-    transform: translateX(113%) scale(0.85);
+    left: 50%;
+    transform: translateX(50%);
     background-color: #777;
-    opacity: 0.3;
+    opacity: 1;
     z-index: 2;
     filter: blur(6px);
   }
@@ -776,6 +623,41 @@ font-style: normal;
     height: 100%;
     object-fit: cover;  /* Couvre entièrement la carte sans déformation */
     display: block;
+  }
+
+  .card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+    display: block;
+  }
+
+  .card-title{
+    position: absolute;
+    text-align: center;
+    top: 0%;
+    left: 0%;
+    opacity: 1;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    color: white;
+    transition: all 0.5s ease;
+    backdrop-filter: brightness(50%);
+    transition: 0.5s ease all;
+  }
+  
+  .card-title h{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 5vw;
+  transition: all 0.5s ease;
   }
 
   .arrow-left,
@@ -793,21 +675,23 @@ font-style: normal;
   cursor: pointer;
   z-index: 8;
   position: absolute;
-  top: 82vw;
+  top: 50vh;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
   }
 
   .arrow-left {
-    left: 10%;
+    left: 3%;
   }
 
   .arrow-right {
-    right: 10%;
+    right: 3%;
   }
 
   .window {
     position: absolute;
-    bottom: -70vh;
-    left: 1vw;
+    bottom: -75vh;
+    left: 32vw;
     scale: 3;
     z-index: 7;
   }
@@ -838,32 +722,49 @@ font-style: normal;
     padding: 1vw;
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;
-    font-family: neue-haas-grotesk-display, sans-serif;
-  font-weight: 100;
-  font-style: normal;
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
   }
 
   
 
-  .big-number {
+  .carousel-indicators {
     position: absolute;
-  top: 100vh;
-  transform: translateY(-160%);
-    left: 40%;
-    font-family: industry-inc-outline, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 50vw;
-    color: white;
-    z-index: 6;
+    top: 85vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+    z-index: 10;
+    transition: all 0.5s ease;
   }
+  
+  .carousel-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #aaa;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .carousel-indicators .active {
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff; /* couleur plus foncée ou plus visible */
+    transform: translateY(-15%);
+  }
+  
   
 
 /* Footer */
 .contact-footer {
   position: absolute; /* ou static */
   transform: translateY(-350%);
-  top: 100vh;
+  top: 98vh;
   width: 100vw;
   color: black;
   padding: 1vw;
@@ -889,21 +790,16 @@ font-style: normal;
 }
 .contact-left p{
   color: white !important;
-  margin-right: 1vw;
+  margin-right: 2vw;
   padding: 2vw;
   padding-top: 1vw;
   padding-bottom: 1vw;
-  background: rgba(0, 0, 0, 0.25); /* Couleur de fond transparente */
+  background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
   border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
   border-radius: 5vw; /* Coins arrondis */
-  font-size: 2vw;
+  font-size: 3vw;
+  transition: all 0.5s ease;
 }
 }
 
-.p5Canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; /* ou un autre z-index adapté */
-  pointer-events: none; /* si tu veux qu'il ne capte pas les clics */
-}
+
