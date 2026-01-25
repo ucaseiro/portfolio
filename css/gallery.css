@@ -9,70 +9,18 @@
 overflow: hidden;
 }
 
-/* Header général */
-header {
-  /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
-  padding: 3vw 3vw;
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-font-weight: 300;
-font-style: normal;
-font-size: 1vw;
-  position:fixed;
-  z-index: 10;
-  width: 100vw;
-  
-}
-
 /* Reset de base */
 a {
   text-decoration: none;
   color: white !important;
 }
 
-/* Header liens */
-header a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 5vw;
-  padding: 1vw 2vw;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.5s ease;
-  z-index: 100;
-}
-
-header a:hover {
-  color: grey;
-  transform: scale(1.05);
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3);
-}
-
-a.active {
-  background: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.6) !important;
-}
 
 
-/* Navigation */
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-/* Liens à droite (Gallery + Projet) */
-.nav-right {
-  display: flex;
-  gap: 20px;
-  
-  
-}
+
+
+
 
 /* --- Fenêtre Modal --- */
 .fullscreen-cv {
@@ -143,6 +91,7 @@ font-style: normal;
   background-color: black;
   top: 100vh;
 z-index: 2;
+
 }
 
 /* MAIN NAV */
@@ -163,12 +112,10 @@ z-index: 2;
 
 
 .gallery {
-  
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
-  overflow: hidden;
   justify-content: center;
   align-items: center;
   top: 0; /* enlever le -5vw */
@@ -205,7 +152,7 @@ z-index: 2;
   background-color: #bbb;
   opacity: 1;
   z-index: 3;
-  
+
   cursor: pointer;
   /* border-radius: 0.8vw; */
   overflow: hidden;
@@ -222,7 +169,6 @@ z-index: 2;
   top: 0%;
   left: 0%;
   opacity: 1;
-  backdrop-filter: brightness(50%);
   z-index: 100;
   height: 100%;
   width: 100%;
@@ -231,10 +177,11 @@ z-index: 2;
   
 }
 
+
 .card-title h{
   position: absolute;
   text-align: center;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: itc-avant-garde-gothic-pro, sans-serif;
@@ -262,6 +209,7 @@ font-size: 1.5vw;
   height: 100%;
   object-fit: cover;  /* Couvre entièrement la carte sans déformation */
   display: block;
+  filter: brightness(50%);
 }
 
 .card video {
@@ -269,6 +217,7 @@ font-size: 1.5vw;
   height: 100%;
   object-fit: cover;  /* Couvre entièrement la carte sans déformation */
   display: block;
+  filter: brightness(50%);
 }
 
 .arrow-left,
@@ -286,7 +235,7 @@ padding: 0.5vw 1.1vw;
 cursor: pointer;
 z-index: 8;
 position: absolute;
-top: 50vh;
+top: 80vh;
 transform: translateY(-50%) scale(1);
 transition: all 0.5s ease;
 }
@@ -307,42 +256,7 @@ transition: all 0.5s ease;
 
 /* INFO BOX */
 
-.window{
-  position: absolute;
-  top: 18vw;
-  left: 25vw;
-  scale: 1.1;
-  z-index: 7;
-}
-.info-box {
-  position: absolute;
-  top: 30vh;
-  left: 5%;
-  color: white;
-  background-color: #1e1e1e;
-  overflow: hidden;
-  border-radius: 0.5vw;
-  font-size: 0.8vw;
-  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-  backdrop-filter: blur(10px); /* Effet de flou derrière */
-  -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  border-radius: 1vw; /* Coins arrondis */
-  z-index: 5;
-  height: auto;
-  width: 12vw;
-}
 
-
-.info-box p{
-  padding: 1vw;
-  padding-top: 0.5vw;
-  padding-bottom: 0.5vw;
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
 
 /* BIG NUMBER */
 .carousel-indicators {
@@ -375,51 +289,6 @@ transition: all 0.5s ease;
 
 
 
-.contact-footer {
-  position: absolute; /* ou static */
-  transform: translateY(-270%);
-  top: 100vh;
-  width: 100vw;
-  color: white;
-  padding: 1vw;
-  gap: 20px; 
-   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  flex-wrap: wrap;
-  z-index: 4;
-}
-
-
-.contact-left {
-  padding: 1vw;
-  position: absolute;
-  flex: 1;
-  text-align: left;
-  display: flex;
-  font-size: 1vw;
-}
-
-.contact-left p{
-  margin-right: 1vw;
-  padding: 1vw;
-  padding-top: 0.5vw;
-  padding-bottom: 0.5vw;
-  background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  border-radius: 5vw; /* Coins arrondis */
-  font-size: 1vw;
-  transition: all 0.5s ease;
-}
-
-.contact-left p:hover{
-  scale: 1.07;
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
-}
-
 } 
 @media (max-height: 490px) {
   .arrow-left,
@@ -434,36 +303,40 @@ transition: all 0.5s ease;
 
 @media (max-width: 666px) {
   /* Corps et liens */
-body{
-  background-color: black;
-  height: 100vh;
-  width: 100vw;
-  overflow:hidden;
-}
-
   .container{
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+  overflow: hidden;
   }
   
+  /* Reset de base */
+  a {
+    text-decoration: none;
+    color: white !important;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* --- Fenêtre Modal --- */
   .fullscreen-cv {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(20px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
   }
   
   .cv-content {
-    width: 85vw;
-    height: 85vh;
+    width: 80vw;
+    height: 80vh;
     position: relative;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
@@ -477,100 +350,40 @@ body{
     display: block;
   }
   
-    .close-btn {
-      font-family: futura-pt, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-      position: absolute;
-      top: 1rem;
-      left: 91vw;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-      font-size: 4vw;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 6vw;
-      height: 6vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  
-
-/* Reset de base pour les liens */
-a {
-  text-decoration: none;
-  color: white !important;
-}
-
-a:hover {
-  color: grey;
-  text-decoration: underline;
-}
-
-a.active {
-  background: rgba(255, 255, 255, 0.3); /* Couleur de fond transparente */
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-  /* Header général */
-   /* Header général */
-   header {
-    /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
-    padding: 3vw 3vw;
+  .mobile-cv-link {
     font-family: itc-avant-garde-gothic-pro, sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 1vw;
-    position:fixed;
-    z-index: 10;
-    width: 100vw;
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    display: block;;
+    text-align: center;
+    margin-top: 1rem;
+    z-index: -1;
   }
-
-  header a{ 
-    display: inline-flex;       /* Correction : permet un meilleur alignement */
-    align-items: center;        /* Centre verticalement le texte */
-    justify-content: center;    /* Centre horizontalement */
-    
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 5vw;
-    padding: 2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    text-decoration: none;       /* Pour éviter soulignement par défaut */
-    color: inherit;              /* Assure la couleur du texte */
-    font-size: 3vw;
-  }
-  
-  /* Navigation */
-  header nav {
+  .close-btn {
+    font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
   }
   
-  /* Liens à droite (Gallery + Projet) */
-  .nav-right {
-    display: flex;
-    gap: 20px;
-    transition: all 0.5s ease;
-  }
-  
-  /* Liens à droite (Gallery + Projet) */
-  .nav-right {
-    display: flex;
-    gap: 20px;
-    transition: all 0.5s ease;
-  }
-
-  .main-nav {
-overflow: hidden;
-  }
   .gallery-page{
     margin: 0;
     height: 100vh;
@@ -578,67 +391,78 @@ overflow: hidden;
     background-color: black;
     top: 100vh;
   z-index: 2;
+  
   }
-  .gallery{
+  
+  /* MAIN NAV */
+  .main-nav {
+    position: relative;
+    top: 4vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5vw 1vw;
+    font-size: 1.2vw;
+    color: white;
+    font-family: orbitron, sans-serif;
+    font-weight: 400;
+    margin-bottom: 31vw;
+    z-index: 0;
+    backdrop-filter: blur(100px);
+  }
+  
+  
+  .gallery {
     position: absolute;
-    top: 0vw;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0; /* enlever le -5vw */
+  }
+  
+  /* CARDS */
+  .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    opacity: 0;
+    z-index: 0;
     overflow: hidden;
   }
   
-  .card {
-    width: 100vw;
-    height: 100vh;
-    background-color: #aaa;
-    transition: all 0.5s ease;
-    opacity: 0;
-    transform: scale(0.8);
-    z-index: 0;
-    position: absolute;
-  }
-
+  /* Cartes visibles */
   .card.left {
     left: 50%;
     transform: translateX(-150%);
     background-color: #777;
-    opacity: 1;
     z-index: 2;
+    opacity: 1;
     filter: blur(6px);
+    /* border-radius: 0.8vw; */
+    overflow: hidden;
   }
-
+  
   .card.center {
     left: 50%;
     transform: translateX(-50%) scale(1);
     background-color: #bbb;
     opacity: 1;
     z-index: 3;
+  
     cursor: pointer;
+    /* border-radius: 0.8vw; */
+    overflow: hidden;
   }
-
-  .card.right {
-    left: 50%;
-    transform: translateX(50%);
-    background-color: #777;
-    opacity: 1;
-    z-index: 2;
-    filter: blur(6px);
+  
+  
+  .card-img:hover{
+    opacity: 0.5;
   }
-
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
-    display: block;
-  }
-
-  .card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
-    display: block;
-  }
-
+  
   .card-title{
     position: absolute;
     text-align: center;
@@ -650,97 +474,95 @@ overflow: hidden;
     width: 100%;
     color: white;
     transition: all 0.5s ease;
-    backdrop-filter: brightness(50%);
-    transition: 0.5s ease all;
+    
   }
+  
   
   .card-title h{
     position: absolute;
     text-align: center;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: itc-avant-garde-gothic-pro, sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 5vw;
-  transition: all 0.5s ease;
+  font-size: 1.5vw;
+    
   }
-
+  
+  
+  
+  .card.right {
+    left: 50%;
+    transform: translateX(50%);
+    background-color: #777;
+    z-index: 2;
+    opacity: 1;
+    filter: blur(6px);
+    /* border-radius: 0.8vw; */
+    overflow: hidden;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+    display: block;
+    filter: brightness(50%);
+  }
+  
+  .card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Couvre entièrement la carte sans déformation */
+    display: block;
+    filter: brightness(50%);
+  }
+  
   .arrow-left,
   .arrow-right {
     font-family: neue-haas-grotesk-display, sans-serif;
-font-weight: 100;
-font-style: normal;
+  font-weight: 100;
+  font-style: normal;
   background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  border: none; /* Bord fin translucide */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bord fin translucide */
   backdrop-filter: blur(10px); /* Effet de flou derrière */
   border-radius: 25vw;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
+  font-size: 2vw;
+  padding: 0.5vw 1.1vw;
   cursor: pointer;
   z-index: 8;
   position: absolute;
-  top: 50vh;
-  transform: translateY(-50%);
+  top: 80vh;
+  transform: translateY(-50%) scale(1);
   transition: all 0.5s ease;
   }
-
+  
   .arrow-left {
-    left: 3%;
+    left: 20%;
   }
-
+  
   .arrow-right {
-    right: 3%;
+    right: 20%;
   }
-
-  .window {
-    position: absolute;
-    bottom: -75vh;
-    left: 32vw;
-    scale: 3;
-    z-index: 7;
+  
+  .arrow-left:hover,
+  .arrow-right:hover{
+    transform: scale(1.2) translateY(-40%);
+   ;
   }
-
-  .info-box {
+  
+  /* INFO BOX */
+  
+  
+  
+  /* BIG NUMBER */
+  .carousel-indicators {
     
     position: absolute;
-    bottom: 15%;
-    left: 5%;
-    color: white;
-    background-color: #1e1e1e;
-    overflow: hidden;
-    border-radius: 0.5vw;
-    font-size: 0.8vw;
-    background: rgba(255, 255, 255, 0.05); /* Couleur de fond transparente */
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Ombre douce */
-    backdrop-filter: blur(10px); /* Effet de flou derrière */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
-    border: 0.5px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-    border-radius: 1vw; /* Coins arrondis */
-    z-index: 5;
-    height: auto;
-    width: 12vw;
-  }
-  
-  
-  .info-box p{
-    padding: 1vw;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
-    font-family: itc-avant-garde-gothic-pro, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  
-
-  .carousel-indicators {
-    position: absolute;
-    top: 85vh;
-    left: 50vw;
-    transform: translateX(-50%);
+    top: 88vh;
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -764,49 +586,6 @@ font-style: normal;
     background-color: #ffffff; /* couleur plus foncée ou plus visible */
     transform: translateY(-15%);
   }
-  
-  
-
-/* Footer */
-.contact-footer {
-  position: absolute; /* ou static */
-  transform: translateY(-350%);
-  top: 98vh;
-  width: 100vw;
-  color: black;
-  padding: 1vw;
-  gap: 20px; 
-   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-family: futura-pt, sans-serif;
-font-weight: 400;
-font-style: normal;
-  flex-wrap: wrap;
-  z-index: 4;
-}
-
-
-.contact-left {
-  padding: 1vw;
-  position: absolute;
-  flex: 1;
-  text-align: left;
-  display: flex;
-  font-size: 1vw;
-}
-.contact-left p{
-  color: white !important;
-  margin-right: 2vw;
-  padding: 2vw;
-  padding-top: 1vw;
-  padding-bottom: 1vw;
-  background: rgba(255, 255, 255, 0.15); /* Couleur de fond transparente */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  border-radius: 5vw; /* Coins arrondis */
-  font-size: 3vw;
-  transition: all 0.5s ease;
-}
 }
 
 

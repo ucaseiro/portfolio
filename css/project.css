@@ -8,7 +8,7 @@ a {
 a:hover {
   color: grey;
   transform: scale(1.05);
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
+  
 }
 
 a.active {
@@ -17,46 +17,115 @@ a.active {
 }
 
 /* Header général */
-header {
-  
-  padding: 3vw 3vw;
-  font-family: itc-avant-garde-gothic-pro, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 1vw;
-  position:fixed;
-  z-index: 10;
-  width: 100vw;
-  top: 0;
+header nav.nav-center {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  gap: 1vw;                /* espace entre les liens */
+  padding: 0.5% 2%;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5vw;
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
 }
+
+header{
+  z-index: 3;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 1vw;
+  position:fixed;
+  width: 100vw;
+  height: 20vh;
+  background: linear-gradient(rgba(0,0,0,1) , rgba(0,0,0,0));
+  top: 0;
+
+}
+
+.nav-center{
+  top: 4.5vh;
+}
+
+/* Styles des liens inchangés, mais ajuster si besoin */
+header nav.nav-center a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15% 15%;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5vw;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
+}
+
+
 header a{ 
-  display: inline-flex;       /* Correction : permet un meilleur alignement */
+  display: flex;       /* Correction : permet un meilleur alignement */
   align-items: center;        /* Centre verticalement le texte */
   justify-content: center;    /* Centre horizontalement */
   
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px) brightness(80%);
+
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+
   border-radius: 5vw;
-  padding: 1vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
   text-decoration: none;       /* Pour éviter soulignement par défaut */
   color: inherit;              /* Assure la couleur du texte */
   transition: all 0.5s ease;
+  filter: brightness(100%);
+  font-size: 0.8vw;
+  /* -webkit-animation: start-back 1s cubic-bezier(0.45, 0, 0.55, 1) 4s forwards;
+  animation: start-back 1s cubic-bezier(0.45, 0, 0.55, 1) 4s forwards; */
+}
+
+#open-cv{
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none; /* Ombre douce */
 }
 
 b {
   font-weight: bold;
 }
+.ugo{
+  font-family: cofo-raffine, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  position: fixed;
+  font-size: 1.5vw;
+  left: 2vw;
+  top: 5vh;
+  color: white;
+  z-index: 10;
 
-/* Navigation */
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+color: white;
+z-index: 10;
+opacity : 1;
+animation: ugo 5s cubic-bezier(0.45, 0, 0.55, 1) 0s forwards;
+}
+
+.etude{
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 300;
+  position: fixed;
+font-size: 0.8vw;
+top: 7.5vh;
+left: 2vw;
+color: white;
+opacity: 1;
+z-index: 10;
+animation: etude 5s cubic-bezier(0.45, 0, 0.55, 1) 0s forwards;
 }
 
 /* Liens à droite (Gallery + Projet) */
@@ -168,7 +237,7 @@ font-style: normal;
 
 body {
   margin: 0;
-  color: black;
+  background-color: black;
   font-family: 'Orbitron', sans-serif;
   overflow-x: hidden;
 }
@@ -189,7 +258,7 @@ body {
   font-family: futura-pt, sans-serif;
 font-weight: 100;
 font-style: normal;
-  font-size: 1vw;
+  font-size: max(20px, 1vw);
   line-height: 1.6;
 }
 
@@ -201,7 +270,7 @@ font-style: normal;
 }
 
 .main-nav {
-  position: fixed;
+  position: absolute;
   top: 0vw;
   height: 6vw;
   width: 100vw;
@@ -216,8 +285,9 @@ font-style: normal;
   margin-bottom: -2vw;
 }
 
+
 .nom{
-  top:75%;
+  top:150%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -324,56 +394,39 @@ font-style: normal;
   scale: 1.1;
 }
 
-.contact-footer {
-  margin-top: 9%;
-  position: relative;
-        bottom: unset;
-        width: 100vw;
-        color: white;
-        padding: 20px;
-        gap: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        font-family: itc-avant-garde-gothic-pro, sans-serif;
-        font-weight: 300;
-        font-style: normal;
-          flex-wrap: wrap;
-          z-index: 4;
+.contact-footer { 
+  position: fixed;   /* reste toujours à l’écran */
+  top: 4.5vh;          /* distance du haut */
+  right: 2vw;        /* distance de la droite */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1vw;
+  z-index: 10;     /* supérieur à header */
+  pointer-events: auto;
 }
-
 
 .contact-left {
-  padding: 1vw;
-  position: absolute;
-  flex: 1;
-  text-align: left;
   display: flex;
-  font-size: 1vw;
+  gap: 1vw;
 }
 
-.contact-left p{
+.contact-left a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8vw 1.5vw;
   color: white !important;
-  margin-right: 1vw;
-  padding: 1vw;
-  padding-top: 0.5vw;
-  padding-bottom: 0.5vw;
-  background: rgba(255, 255, 255, 0.1); /* Couleur de fond transparente */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 5vw; /* Coins arrondis */
+  border-radius: 2vw;
+  text-decoration: none;
   font-size: 1vw;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
 }
 
-.contact-left p:hover{
-  scale: 1.07;
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.2); /* Ombre douce */
-}
-
-.contact-left a:hover{
-  box-shadow: none;
+.contact-left a:hover {
+  transform: scale(1.07);
+  text-decoration: underline;
 }
 
 }
@@ -576,7 +629,7 @@ font-style: normal;
 
   body {
     margin: 0;
-    color: white;
+    background-color: rgb(0, 0, 0);
     font-family: 'Orbitron', sans-serif;
     overflow-x: hidden;
   }
