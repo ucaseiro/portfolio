@@ -404,8 +404,6 @@ animation: etude 5s cubic-bezier(0.45, 0, 0.55, 1) 0s forwards;
   /* Corps et liens */
   body{
     background: black;
-    height: 100vh;
-    overflow: hidden;
     
   }
 
@@ -425,56 +423,63 @@ animation: etude 5s cubic-bezier(0.45, 0, 0.55, 1) 0s forwards;
   }
 
   /* Header général */
-  header {
-    /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
-    padding: 3vw 3vw;
-    font-family: itc-avant-garde-gothic-pro, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 1vw;
-    position:fixed;
-    z-index: 10;
-    width: 100vw;
-  }
+/* Header général */
+header nav.nav-center {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  gap: 1vw;                /* espace entre les liens */
+  padding: 0.5% 2%;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5vw;
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
+}
 
-  header a{ 
-    display: inline-flex;       /* Correction : permet un meilleur alignement */
-    align-items: center;        /* Centre verticalement le texte */
-    justify-content: center;    /* Centre horizontalement */
-    
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 5vw;
-    padding: 2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    text-decoration: none;       /* Pour éviter soulignement par défaut */
-    color: inherit;              /* Assure la couleur du texte */
-    font-size: 3vw;
-  }
-  
-  /* Navigation */
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Liens à droite (Gallery + Projet) */
-  .nav-right {
-    display: flex;
-    gap: 20px;
-    
-  }
+header{
+  z-index: 3;
+  padding: 4vh 3vw;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 1vw;
+  position:fixed;
+  width: 100vw;
+  background: linear-gradient(rgba(0,0,0,1) , rgba(0,0,0,0));
+  top: 0;
+  scale: 3;
+}
+
+.nav-center{
+  top: 4.5vh;
+}
+
+/* Styles des liens inchangés, mais ajuster si besoin */
+header nav.nav-center a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15% 15%;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5vw;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
+}
 
   .accueil-page{
     background-color: black;
     height: 100vh;
    position: fixed;
    z-index: 1;
+   top: 0;
     
   }
 
@@ -525,6 +530,33 @@ animation: etude 5s cubic-bezier(0.45, 0, 0.55, 1) 0s forwards;
       justify-content: center;
     }
 
+    .ugo{
+      font-family: cofo-raffine, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      position: fixed;
+      font-size: 5vw;
+      left: 2vw;
+      top: 6.5vh;
+      color: white;
+      z-index: 10;
+    
+    color: white;
+    z-index: 10;
+    opacity : 1;
+    }
+    
+    .etude{
+      font-family: itc-avant-garde-gothic-pro, sans-serif;
+      font-weight: 300;
+      position: fixed;
+    font-size: 1.6vw;
+    top: 8.7vh;
+    left: 2vw;
+    color: white;
+    opacity: 1;
+    z-index: 10;
+    }
   
 
   /* Title */
@@ -601,43 +633,38 @@ animation: etude 5s cubic-bezier(0.45, 0, 0.55, 1) 0s forwards;
 
 
   /* Footer */
-  .contact-footer {
-    position: absolute; /* ou static */
-    transform: translateY(-350%);
-    top: 98vh;
-    width: 100vw;
-    color: black;
-    padding: 1vw;
-    gap: 20px; 
-     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-family: futura-pt, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    flex-wrap: wrap;
-    z-index: 10;
+  .contact-footer { 
+    position: fixed;   /* reste toujours à l’écran */
+    top: 90vh;          /* distance du haut */
+    left: 2vw;        /* distance de la droite */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1vw;
+    z-index: 10;     /* supérieur à header */
+    pointer-events: auto;
   }
-  
   
   .contact-left {
-    padding: 1vw;
-    position: absolute;
-    flex: 1;
-    text-align: left;
     display: flex;
-    font-size: 1vw;
+    gap: 1vw;
   }
-  .contact-left p{
+  
+  .contact-left a {
+    align-items: center;
+    justify-content: center;
+    padding: 0.8vw 1.5vw;
     color: white !important;
-    margin-right: 2vw;
-    padding: 2vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    background: rgba(0, 0, 0, 0.15); /* Couleur de fond transparente */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Bord fin translucide */
-    border-radius: 5vw; /* Coins arrondis */
+    border-radius: 2vw;
+    text-decoration: none;
     font-size: 3vw;
+    transition: all 0.3s ease;
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+  }
+  
+  .contact-left a:hover {
+    transform: scale(1.07);
+    text-decoration: underline;
   }
 
 }

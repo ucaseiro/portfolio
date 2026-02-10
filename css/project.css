@@ -468,51 +468,84 @@ font-style: normal;
   }
   
   /* Header général */
-  header {
-    /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%); */
-    padding: 3vw 3vw;
-    font-family: itc-avant-garde-gothic-pro, sans-serif;
-    transform: translateY(-20%);
-  font-weight: 300;
-  font-style: normal;
-  font-size: 1vw;
-    position:fixed;
+/* Header général */
+header nav.nav-center {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  gap: 1vw;                /* espace entre les liens */
+  padding: 0.5% 2%;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5vw;
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+
+header{
+  z-index: 3;
+  padding: 4vh 3vw;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 1vw;
+  position:fixed;
+  width: 100vw;
+  background: linear-gradient(rgba(0,0,0,1) , rgba(0,0,0,0));
+  top: 0;
+  scale: 3;
+}
+
+.nav-center{
+  top: 4.5vh;
+}
+
+/* Styles des liens inchangés, mais ajuster si besoin */
+header nav.nav-center a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15% 15%;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5vw;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.3); /* Ombre douce */
+}
+  .ugo{
+    font-family: cofo-raffine, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    position: fixed;
+    font-size: 5vw;
+    left: 2vw;
+    top: 6.5vh;
+    color: white;
     z-index: 10;
-    width: 100vw;
+  
+  color: white;
+  z-index: 10;
+  opacity : 1;
+  }
+  
+  .etude{
+    font-family: itc-avant-garde-gothic-pro, sans-serif;
+    font-weight: 300;
+    position: fixed;
+  font-size: 1.6vw;
+  top: 8.7vh;
+  left: 2vw;
+  color: white;
+  opacity: 1;
+  z-index: 10;
   }
 
-  header a{ 
-    display: inline-flex;       /* Correction : permet un meilleur alignement */
-    align-items: center;        /* Centre verticalement le texte */
-    justify-content: center;    /* Centre horizontalement */
-    
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 5vw;
-    padding: 2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    text-decoration: none;       /* Pour éviter soulignement par défaut */
-    color: inherit;              /* Assure la couleur du texte */
-    font-size: 3vw;
-  }
-  
-  /* Navigation */
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Liens à droite (Gallery + Projet) */
-  .nav-right {
-    display: flex;
-    gap: 20px;
-    
-  }
   
   /* --- Fenêtre Modal --- */
 /* --- Fenêtre Modal --- */
@@ -648,7 +681,7 @@ font-style: normal;
     font-family: futura-pt, sans-serif;
   font-weight: 100;
   font-style: normal;
-    font-size: 2.5vw;
+    font-size: 3vw;
   }
   
   .pp{
@@ -724,6 +757,7 @@ font-style: normal;
     top: 80vh;
     cursor: pointer;
     transition: all 0.5s ease;
+    scale: 2;
   }
   
   .next-btn a{
@@ -747,6 +781,7 @@ font-style: normal;
     right: 0vw;
     cursor: pointer;
     transition: all 0.5s ease;
+    scale: 2;
   }
   
   .contact-footer {

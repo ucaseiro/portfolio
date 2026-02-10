@@ -3,7 +3,8 @@ $(document).ready(function () {
   /* =====================================================
      DÉTECTION MOBILE
   ===================================================== */
-  const isMobile = window.matchMedia('(max-width: 666px)').matches;
+  const isMobile = window.matchMedia('(max-width: 750px)').matches;
+  const isLandscape = window.matchMedia('(max-height: 500px)').matches;
 
   /* =====================================================
      CAROUSEL
@@ -154,6 +155,14 @@ $(document).ready(function () {
      MOBILE : SCROLL NATIF (NE RIEN FAIRE)
   ===================================================== */
   if (isMobile) {
+    $('body').css('touch-action', 'auto');
+    $('.accueil-page').css({
+      filter: 'none',
+      transform: 'none'
+    });
+  }
+
+  if (isLandscape) {
     $('body').css('touch-action', 'auto');
     $('.accueil-page').css({
       filter: 'none',
